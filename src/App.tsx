@@ -1,7 +1,13 @@
+import Header from "./components/Header";
+import UserInfo from "./components/UserInfo";
+import { useGithubUser } from "./hooks/useGithubUser";
+
 function App() {
+  const {user, loading, error, fetchUser} = useGithubUser();
   return (
     <main>
-      <h1 className="font-bold text-4xl text-amber-200">Ola mundo/</h1>
+      <Header onSearch={fetchUser} user={user} loading={loading} error={error} />
+      <UserInfo user={user} loading={loading} error={error}/>
     </main>
   );
 }
