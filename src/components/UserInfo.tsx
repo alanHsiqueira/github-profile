@@ -14,7 +14,7 @@ const UserInfo = ({ user, loading, error }: ProfileProps) => {
       )}
       {loading && <p className="text-[#CDD5E0] text-xl p-8">Loading...</p>}
       {user && (
-        <div className="max-w-4xl ml-100  px-4">
+        <div className="max-w-4xl mx-auto  px-4">
           <div className="flex items-end gap-6 relative -mt-12 z-10">
             <div>
               <img
@@ -32,7 +32,7 @@ const UserInfo = ({ user, loading, error }: ProfileProps) => {
               </div>
               <div className="flex bg-[#111729] p-4 rounded-xl items-center gap-2">
                 <p className="text-[#CDD5E0] text-sm font-bold">Following</p>
-               <p className="text-[#CDD5E0] font-bold text-base border-l border-[#364153] pl-4">
+                <p className="text-[#CDD5E0] font-bold text-base border-l border-[#364153] pl-4">
                   {user.following}
                 </p>
               </div>
@@ -44,6 +44,10 @@ const UserInfo = ({ user, loading, error }: ProfileProps) => {
                 </p>
               </div>
             </div>
+          </div>
+          <div className='mt-5'>
+            <h1 className='text-[#CDD5E0] text-4xl font-bold"'>{user?.name || user?.login}</h1>
+            <p className='text-[#97A3B6] text-lg'>{user?.bio || "This user has no bio"}</p>
           </div>
         </div>
       )}

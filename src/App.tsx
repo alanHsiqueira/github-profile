@@ -3,7 +3,7 @@ import UserInfo from "./components/UserInfo";
 import { useGithubUser } from "./hooks/useGithubUser";
 
 function App() {
-  const {user, loading, error, fetchUser} = useGithubUser();
+  const {user,repos, loading, error, fetchUser} = useGithubUser();
   return (
     <main>
       <Header onSearch={fetchUser} user={user} loading={loading} error={error} />
