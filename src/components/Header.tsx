@@ -10,7 +10,7 @@ type HeaderProps = {
   error: string | null;
 };
 
-const Header = ({ onSearch, user, loading, error }: HeaderProps) => {
+const Header = ({ onSearch, user }: HeaderProps) => {
   const [value, setValue] = React.useState('');
   function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
@@ -25,13 +25,12 @@ const Header = ({ onSearch, user, loading, error }: HeaderProps) => {
           src={universe}
           className="absolute inset-0 w-full h-full  object-cover"
           alt="universe background"
-          role="img"
         />
       </div>
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-4">
         <form
           onSubmit={handleSubmit}
-          className="flex bg-[#364153] gap-2 py-5 px-3 rounded-xl w-full max-w-122.5"
+          className="flex bg-[#364153] items-center gap-2 py-3 sm:py-5 px-3 rounded-xl w-full max-w-122.5"
         >
           <img className="shrink-0 w-6 h-6" src={search} alt="Search" />
           <Input
@@ -42,7 +41,7 @@ const Header = ({ onSearch, user, loading, error }: HeaderProps) => {
           />
           <button
             type="submit"
-            className="bg-[#111729] text-[#CDD5E0] py-1 px-2  rounded-lg text-sm cursor-pointer"
+            className="hidden sm:block bg-[#111729] text-[#CDD5E0] py-1 px-2  rounded-lg text-sm cursor-pointer hover:opacity-80 transition-opacity"
           >
             Search
           </button>
@@ -50,13 +49,13 @@ const Header = ({ onSearch, user, loading, error }: HeaderProps) => {
         {user && (
           <div className="flex bg-[#111729] p-4 gap-4 rounded-xl w-full max-w-122.5 items-center">
             <img
-              className="w-16 h-16 rounded-xl shrink-0 object-cover"
+              className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl shrink-0 object-cover"
               src={user?.avatar_url}
               alt={`Foto de perfil de ${user.name}`}
             />
             <div className="flex flex-col">
-              <p className="text-[#CDD5E0] font-bold text-lg">{user?.name}</p>
-              <p className="text-[#97A3B6] text-lg">{user?.bio}</p>
+              <p className="text-[#CDD5E0] font-bold text-sm sm:text-lg">{user?.name}</p>
+              <p className="text-[#97A3B6] text-sm sm:text-lg line-clamp-2 mt-1">{user?.bio}</p>
             </div>
           </div>
         )}
