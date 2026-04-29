@@ -8,14 +8,14 @@ type RepoCardProps = {
 };
 
 const getDaysAgo = (dateString: string) => {
-    const date = new Date(dateString);
-    const now = new Date();
-    const diffTime = Math.abs(now.getTime() - date.getTime());
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+  const date = new Date(dateString);
+  const now = new Date();
+  const diffTime = Math.abs(now.getTime() - date.getTime());
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-    if (diffDays === 0) return 'updated today';
-    if (diffDays === 1) return 'updated 1 day ago';
-    return `updated ${diffDays} days ago`
+  if (diffDays === 0) return 'Updated today';
+  if (diffDays === 1) return 'Updated 1 day ago';
+  return `Updated ${diffDays} days ago`;
 };
 
 const RepoCard = ({ repo }: RepoCardProps) => {

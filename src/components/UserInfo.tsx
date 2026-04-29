@@ -48,7 +48,7 @@ const UserInfo = ({ user, loading, error }: ProfileProps) => {
               <img
                 className="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-full shrink-0 border-4 border-[#20293A]"
                 src={user?.avatar_url}
-                alt={`Foto de perfil de ${user?.name}`}
+                alt={`Profile picture of ${user?.name}`}
               />
             </div>
 
@@ -76,7 +76,7 @@ const UserInfo = ({ user, loading, error }: ProfileProps) => {
                   Location
                 </p>
                 <p className="text-[#CDD5E0] text-sm sm:text-base font-bold border-l border-[#364153] pl-2 sm:pl-4">
-                  {user.location ? user.location : 'location not found'}
+                  {user.location ? user.location : 'Location not found'}
                 </p>
               </div>
             </div>
@@ -87,7 +87,7 @@ const UserInfo = ({ user, loading, error }: ProfileProps) => {
               {user?.name || user?.login}
             </h1>
             <p className="text-[#97A3B6] text-base sm:text-lg mt-2 sm:mt-0">
-              {user?.bio || 'This user has no bio'}
+              {user?.bio || 'This user has no bio.'}
             </p>
           </div>
         </div>

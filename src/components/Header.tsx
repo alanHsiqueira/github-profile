@@ -51,11 +51,15 @@ const Header = ({ onSearch, user }: HeaderProps) => {
             <img
               className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl shrink-0 object-cover"
               src={user?.avatar_url}
-              alt={`Foto de perfil de ${user.name}`}
+              alt={`Profile picture of ${user.name}`}
             />
             <div className="flex flex-col">
-              <p className="text-[#CDD5E0] font-bold text-sm sm:text-lg">{user?.name}</p>
-              <p className="text-[#97A3B6] text-sm sm:text-lg line-clamp-2 mt-1">{user?.bio}</p>
+              <p className="text-[#CDD5E0] font-bold text-sm sm:text-lg">
+                {user?.name}
+              </p>
+              <p className="text-[#97A3B6] text-sm sm:text-lg line-clamp-2 mt-1">
+                {user?.bio}
+              </p>
             </div>
           </div>
         )}

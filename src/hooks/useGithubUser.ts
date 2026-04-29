@@ -56,9 +56,9 @@ export const useGithubUser = () => {
 
       if (!userResponse.ok) {
         if (userResponse.status === 404) {
-          throw new Error('Usuario não encontrado');
+          throw new Error('User not found');
         }
-        throw new Error('Erro ao buscar dados na API');
+        throw new Error('Error fetching data from the API');
       }
       const userData: GithubUser = await userResponse.json();
       const reposData: GithubRepo[] = await reposResponse.json();
@@ -66,17 +66,21 @@ export const useGithubUser = () => {
       setRepos(reposData);
     } catch (err: unknown) {
       if (err instanceof Error && err.name === 'AbortError') {
-        console.log('Requisição cancelada pelo AbortController');
+        console.log('Request canceled by AbortController');
         return;
       }
       if (err instanceof Error) {
         setError(err.message);
       } else {
-        setError('Ocorreu um erro inesperado');
+        setError('An unexpected error occurred');
       }
     } finally {
       setLoading(false);
     }
   };
-  return { user,repos, loading, error, fetchUser };
+
+  React.useEffect(() => {
+    fetchUser('alanHsiqueira');
+  }, []);
+  return { user, repos, loading, error, fetchUser };
 };

@@ -13,6 +13,6 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
 // eslint-disable-next-line react-refresh/only-export-components
 export const useUser = () => {
   const context = React.useContext(UserContext);
-  if (!context) throw new Error('useUser most be used within a UserProvider');
-  return context; 
+  if (!context) throw new Error('useUser must be used within a UserProvider');
+  return context;
 };
