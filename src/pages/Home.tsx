@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import RepoList from "../components/RepoList";
 import UserInfo from "../components/UserInfo";
-import { useGithubUser } from "../hooks/useGithubUser";
+import { useUser } from "../context/UserContext";
 
 function App() {
-  const {user,repos, loading, error, fetchUser} = useGithubUser();
+  const {user,repos, loading, error, fetchUser} = useUser();
   return (
     <main className="bg-[#20293A] min-h-screen pb-12">
       <Header onSearch={fetchUser} user={user} loading={loading} error={error} />
