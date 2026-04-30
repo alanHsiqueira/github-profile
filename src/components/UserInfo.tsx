@@ -46,7 +46,7 @@ const UserInfo = ({ user, loading, error }: ProfileProps) => {
           <div className="flex flex-col lg:flex-row lg:items-end gap-4 sm:gap-6 relative -mt-8 sm:-mt-12 z-10">
             <div>
               <img
-                className="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-full shrink-0 border-4 border-[#20293A]"
+                className="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-full shrink-0 "
                 src={user?.avatar_url}
                 alt={`Profile picture of ${user?.name}`}
               />

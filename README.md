@@ -1,74 +1,54 @@
-# React + TypeScript + Vite
+# 🚀 GitHub Profile Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Preview do Projeto](./src/assets/Pasted%20image.png)
+*(Dica: Tire um print da sua tela e salve como preview.png na pasta raiz para a imagem aparecer aqui!)*
 
-Currently, two official plugins are available:
+**🔗 Acesse o projeto online:** [GitHub Profile Explorer](https://alanhsiqueira.github.io/github-profile/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 💻 Sobre o Projeto
 
-## React Compiler
+O **GitHub Profile Explorer** é uma aplicação Single Page Application (SPA) desenvolvida para buscar e exibir dados de usuários do GitHub de forma rápida. O projeto consome a API pública do GitHub para renderizar estatísticas detalhadas de perfil e listar repositórios com suas respectivas informações.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## ✨ Principais Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Busca em Tempo Real:** Pesquise por qualquer usuário do GitHub.
+- **Visualização de Perfil:** Exibe avatar, bio, seguidores, seguindo e localização.
+- **Listagem de Repositórios:** Traz os repositórios mais recentes do usuário na página principal.
+- **Rota Dedicada:** Uma página exclusiva para listar até 100 repositórios públicos do usuário.
+- **Design Responsivo:** Layout fluido que se adapta perfeitamente a dispositivos móveis (Mobile First) e desktops.
+- **Estados de Carregamento e Erro:** Feedback visual interativo (Spinners e Skeleton/Pulse) enquanto a API processa os dados ou caso o usuário não seja encontrado.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠 Tecnologias Utilizadas
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **[React](https://reactjs.org/)** (Vite)
+- **[TypeScript](https://www.typescriptlang.org/)** - Tipagem estática para garantir previsibilidade e redução de bugs.
+- **[Tailwind CSS](https://tailwindcss.com/)** - Estilização utilitária avançada.
+- **[React Router DOM](https://reactrouter.com/)** - Roteamento no lado do cliente.
+- **Context API** - Gerenciamento de estado global.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🧠 Desafios Técnicos e Aprendizados
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Durante o desenvolvimento deste projeto, implementei soluções avançadas para problemas comuns no ecossistema React:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **Prevenção de Race Conditions:** Utilização do `AbortController` nas requisições da API para cancelar chamadas antigas caso o usuário faça múltiplas buscas rapidamente.
+2. **Gerenciamento de Estado com Context API:** Implementação do contexto para evitar *Prop Drilling* e garantir que os dados do usuário não sejam perdidos (unmounted) ao navegar entre a página principal e a página completa de repositórios.
+3. **Deploy em Páginas Estáticas:** Uso estratégico do `HashRouter` no lugar do `BrowserRouter` para garantir que o roteamento funcione perfeitamente no GitHub Pages, evitando erros 404 ao recarregar a página.
+4. **Tipagem Utilitária no TS:** Uso de `ReturnType` para inferir automaticamente os tipos do Contexto baseado no retorno do Custom Hook, mantendo uma *Single Source of Truth* (Única Fonte de Verdade) para facilitar a manutenção.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# github-profile
+## 🚀 Como rodar o projeto localmente
+
+Siga os passos abaixo para rodar o projeto na sua máquina:
+
+```bash
+# 1. Clone o repositório
+git clone https://github.com/alanhsiqueira/github-profile.git
+
+# 2. Acesse a pasta do projeto
+cd github-profile
+
+# 3. Instale as dependências
+npm install
+
+# 4. Inicie o servidor de desenvolvimento
+npm run dev
