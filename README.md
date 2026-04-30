@@ -1,7 +1,7 @@
 # 🚀 GitHub Profile Explorer
 
 ![Preview do Projeto](./src/assets/Pasted%20image.png)
-*(Dica: Tire um print da sua tela e salve como preview.png na pasta raiz para a imagem aparecer aqui!)*
+
 
 **🔗 Acesse o projeto online:** [GitHub Profile Explorer](https://alanhsiqueira.github.io/github-profile/)
 
